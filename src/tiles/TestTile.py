@@ -1,11 +1,9 @@
-from Building import *
-from Pub import *
-from House import *
-from University import *
-from FastFood import *
-from Library import *
+from Tile import *
+from GreyTile import *
+from WaterTile import *
 
 print("deb")
-b=House()
-print(b)
+t=WaterTile()
+print(t)
+print(t.can_go(True))
 print("fin")

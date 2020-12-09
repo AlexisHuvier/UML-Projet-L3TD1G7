@@ -1,6 +1,6 @@
+from Tile import *
 
-
-class Building:
+class Building(Tile):
     """
     classe batiment
     """
