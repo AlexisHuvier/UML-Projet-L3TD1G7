@@ -22,8 +22,8 @@ class SaveMenu:
 
         self.save_button = pygame.Surface((200, 40), pygame.SRCALPHA, 32).convert_alpha()
         self.save_button.fill((50, 50, 50))
-        save_title = pygame.font.SysFont("Arial", 16).render("Savegarder", True, (255, 255, 255))
-        save_size = pygame.font.SysFont("Arial", 16).size("Savegarder")
+        save_title = pygame.font.SysFont("Arial", 16).render("Sauvegarder", True, (255, 255, 255))
+        save_size = pygame.font.SysFont("Arial", 16).size("Sauvegarder")
         self.save_button.blit(save_title, (100 - save_size[0]/2, 20 - save_size[1]/2))
 
         self.return_button = pygame.Surface((200, 40), pygame.SRCALPHA, 32).convert_alpha()
