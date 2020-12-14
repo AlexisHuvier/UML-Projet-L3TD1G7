@@ -1,4 +1,5 @@
-from Tile import *
+from src.tiles.Tile import Tile
+
 
 class GreyTile(Tile):
     img="G"
@@ -7,7 +8,7 @@ class GreyTile(Tile):
         print("tile")
         
     def __str__(self):
-        return "tile affichage"
+        return "G affichage"
 
     def can_go(self,Personnage):
         return False
