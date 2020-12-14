@@ -39,6 +39,6 @@ class PauseMenu:
             if self.quit_button.get_rect(x=350, y=425).collidepoint(*evt.pos):
                 self.game.display(0)
             elif self.resume_button.get_rect(x=350, y=225).collidepoint(*evt.pos):
-                print("RESUME")
+                self.game.display(5)
             elif self.save_button.get_rect(x=350, y=325).collidepoint(*evt.pos):
                 self.game.display(3)
