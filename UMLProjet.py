@@ -18,8 +18,14 @@ class UMLProjet:
         self.screen = pygame.display.set_mode((self.width, self.height))
 
         self.screens = [MainMenu(self), CharacterMenu(self), LoadMenu(self), SaveMenu(self), PauseMenu(self)]
-        self.current_displayed = 4
+        self.current_displayed = 0
+
         self.player = None
+        self.pause_button = pygame.Surface((100, 40), pygame.SRCALPHA, 32).convert_alpha()
+        self.pause_button.fill((50, 50, 50))
+        pause_title = pygame.font.SysFont("Arial", 16).render("Pause", True, (255, 255, 255))
+        pause_size = pygame.font.SysFont("Arial", 16).size("Pause")
+        self.pause_button.blit(pause_title, (50 - pause_size[0]/2, 20 - pause_size[1]/2))
 
         self.clock = pygame.time.Clock()
         self.is_running = False
@@ -44,6 +50,10 @@ class UMLProjet:
         else:
             if(self.current_displayed < len(self.screens)):
                 self.screens[self.current_displayed].process_event(evt)
+            else:
+                if evt.type == pygame.MOUSEBUTTONDOWN and evt.button == pygame.BUTTON_LEFT:
+                    if self.pause_button.get_rect(x=750, y=50).collidepoint(*evt.pos):
+                        self.display(4)
 
     def run(self):
         self.is_running = True
@@ -57,6 +67,7 @@ class UMLProjet:
                 self.screens[self.current_displayed].display(self.screen)
             else:
                 self.player.display(self.screen)
+                self.screen.blit(self.pause_button, (750, 50))
 
             self.clock.tick()
             pygame.display.update()
