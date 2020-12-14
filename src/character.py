@@ -40,9 +40,9 @@ class Hippy(Character):
         super().__init__(75, 50, 50, 100, "files/images/hippie.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
     
     def move(self):
-        self.life -= 2
-        self.hydration -= 2
-        self.satiety -= 2
+        self.life -= 0.5
+        self.hydration -= 0.5
+        self.satiety -= 0.5
 
 class HurriedMan(Character):
 
@@ -50,4 +50,7 @@ class HurriedMan(Character):
         super().__init__(100, 75, 75, 50, "files/images/presse.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
     
     def move(self):
-        self.mentality -= 2
+        self.life -= 1
+        self.hydration -= 1
+        self.satiety -= 1
+        self.mentality -= 1
