@@ -2,6 +2,7 @@ import pygame
 import sys
 
 from src.menus import *
+from src.character import Hippy, HurriedMan, Standard
 
 pygame.init()
 
@@ -18,6 +19,7 @@ class UMLProjet:
 
         self.screens = [MainMenu(self), CharacterMenu(self), LoadMenu(self), SaveMenu(self), PauseMenu(self)]
         self.current_displayed = 4
+        self.player = None
 
         self.clock = pygame.time.Clock()
         self.is_running = False
@@ -27,6 +29,14 @@ class UMLProjet:
 
     def display(self, new):
         self.current_displayed = new
+    
+    def create_player(self, type_):
+        if type_ == 0:
+            self.player = Standard(self, (100, 100), (0, 0), 0, False, 0)
+        elif type_ == 1:
+            self.player = Hippy(self, (100, 100), (0, 0), 0, False, 0)
+        else:
+            self.player = HurriedMan(self, (100, 100), (0, 0), 0, False, 0)
 
     def process_event(self, evt):
         if evt.type == pygame.QUIT:
@@ -45,6 +55,8 @@ class UMLProjet:
 
             if(self.current_displayed < len(self.screens)):
                 self.screens[self.current_displayed].display(self.screen)
+            else:
+                self.player.display(self.screen)
 
             self.clock.tick()
             pygame.display.update()

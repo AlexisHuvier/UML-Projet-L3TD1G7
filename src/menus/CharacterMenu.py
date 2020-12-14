@@ -11,8 +11,8 @@ class CharacterMenu:
 
         self.standart_button = pygame.Surface((200, 40), pygame.SRCALPHA, 32).convert_alpha()
         self.standart_button.fill((50, 50, 50))
-        standart_title = pygame.font.SysFont("Arial", 16).render("Standart", True, (255, 255, 255))
-        standart_size = pygame.font.SysFont("Arial", 16).size("Standart")
+        standart_title = pygame.font.SysFont("Arial", 16).render("Standard", True, (255, 255, 255))
+        standart_size = pygame.font.SysFont("Arial", 16).size("Standard")
         self.standart_button.blit(standart_title, (100 - standart_size[0]/2, 20 - standart_size[1]/2))
 
         self.hippie_button = pygame.Surface((200, 40), pygame.SRCALPHA, 32).convert_alpha()
@@ -35,4 +35,13 @@ class CharacterMenu:
         screen.blit(self.presse_button, (350, 425))
     
     def process_event(self, evt):
-        pass
+        if evt.type == pygame.MOUSEBUTTONDOWN and evt.button == pygame.BUTTON_LEFT:
+            if self.standart_button.get_rect(x=350, y=225).collidepoint(*evt.pos):
+                self.game.create_player(0)
+                self.game.display(5)
+            elif self.hippie_button.get_rect(x=350, y=325).collidepoint(*evt.pos):
+                self.game.create_player(1)
+                self.game.display(5)
+            elif self.presse_button.get_rect(x=350, y=425).collidepoint(*evt.pos):
+                self.game.create_player(2)
+                self.game.display(5)
