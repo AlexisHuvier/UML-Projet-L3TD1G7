@@ -1,16 +1,16 @@
 from src.tiles.Tile import Tile
 
 
-class Road(Tile):
-    img="R"
+class Sidewalk(Tile):
+    img="S"
     
 
         
     def __str__(self):
-        return "R"
+        return "S"
 
     def can_go(self,Personnage):
-        if (personnage.movement_mode=="car" or personnage.movement_mode=="bicycle"):
+        if (personnage.movement_mode=="feet"):
             return True
         return False
 
