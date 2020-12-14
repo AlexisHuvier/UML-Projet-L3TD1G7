@@ -4,11 +4,10 @@ from src.tiles.Tile import Tile
 class WaterTile(Tile):
     img="W"
     
-    def __init__(self):
-        print("tile")
+
         
     def __str__(self):
-        return "W affichage"
+        return "W"
 
     def can_go(self,personnage):
         if (personnage.movement_mode=="foot" and personnage.has_swimsuit==True):

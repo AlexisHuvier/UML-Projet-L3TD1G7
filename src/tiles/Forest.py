@@ -4,11 +4,9 @@ import random
 class Forest(Tile):
     img="F"
     
-    def __init__(self):
-        print("tile")
         
     def __str__(self):
-        return "F affichage"
+        return "F"
 
     def can_go(self,personnage):
         if (personnage.movement_mode=="foot" or personnage.movement_mode=="bicycle"):

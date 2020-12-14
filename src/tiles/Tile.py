@@ -7,8 +7,6 @@ class Tile:
     """
     img="T"
     
-    def __init__(self):
-        print("tile")
         
     def __str__(self):
         return "tile affichage"
