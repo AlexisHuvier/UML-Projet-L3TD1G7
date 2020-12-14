@@ -25,7 +25,7 @@ class Character:
 class Standard(Character):
 
     def __init__(self, game, position, go_position, movement_mode, has_swimsuit, arrest_count):
-        super().__init__(75, 75, 75, 75, "files/images/standart.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
+        super().__init__(75, 75, 75, 75, "files/images/standard.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
     
     def move(self):
         self.life -= 1
