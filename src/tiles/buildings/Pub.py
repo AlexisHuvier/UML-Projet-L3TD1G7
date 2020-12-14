@@ -1,4 +1,4 @@
-from Building import *
+from src.tiles.buildings.Building import Building
 
 class Pub(Building):
     """

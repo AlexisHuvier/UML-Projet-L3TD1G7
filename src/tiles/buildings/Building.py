@@ -1,4 +1,4 @@
-from Tile import *
+from src.tiles.Tile import Tile
 
 class Building(Tile):
     """
@@ -10,6 +10,12 @@ class Building(Tile):
     def __str__(self):
         """Méthode appelée lors d'une conversion de l'objet en chaîne"""
         return "building affichage"
+
+    def can_go(self,personnage):
+        return True
+
+    def display():
+        print(img)
 
     def apply():
         print("effect")

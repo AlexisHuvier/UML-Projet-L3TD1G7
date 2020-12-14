@@ -1,4 +1,5 @@
-from Tile import *
+from src.tiles.Tile import Tile
+
 
 class Road(Tile):
     img="R"
@@ -7,7 +8,7 @@ class Road(Tile):
         print("tile")
         
     def __str__(self):
-        return "tile affichage"
+        return "R affichage"
 
     def can_go(self,Personnage):
         if (personnage.movement_mode=="car" or personnage.movement_mode=="bicycle"):

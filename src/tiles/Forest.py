@@ -1,4 +1,4 @@
-from Tile import *
+from src.tiles.Tile import Tile
 import random
 
 class Forest(Tile):
@@ -8,7 +8,7 @@ class Forest(Tile):
         print("tile")
         
     def __str__(self):
-        return "tile affichage"
+        return "F affichage"
 
     def can_go(self,personnage):
         if (personnage.movement_mode=="foot" or personnage.movement_mode=="bicycle"):
