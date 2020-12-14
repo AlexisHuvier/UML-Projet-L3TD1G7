@@ -1,7 +1,7 @@
 import pygame
 import sys
 
-from src.menus import MainMenu
+from src.menus import *
 
 pygame.init()
 
@@ -16,8 +16,8 @@ class UMLProjet:
         pygame.display.set_caption("UMLProjet")
         self.screen = pygame.display.set_mode((self.width, self.height))
 
-        self.menus = [MainMenu(self)]
-        self.current_showed = 0
+        self.screens = [MainMenu(self), CharacterMenu(self), LoadMenu(self), SaveMenu(self), PauseMenu(self)]
+        self.current_displayed = 4
 
         self.clock = pygame.time.Clock()
         self.is_running = False
@@ -25,12 +25,15 @@ class UMLProjet:
     def stop(self):
         self.is_running = False
 
+    def display(self, new):
+        self.current_displayed = new
+
     def process_event(self, evt):
         if evt.type == pygame.QUIT:
             self.stop()
         else:
-            if(self.current_showed < len(self.menus)):
-                self.menus[self.current_showed].process_event(evt)
+            if(self.current_displayed < len(self.screens)):
+                self.screens[self.current_displayed].process_event(evt)
 
     def run(self):
         self.is_running = True
@@ -40,8 +43,8 @@ class UMLProjet:
             
             self.screen.fill((0, 0, 0))
 
-            if(self.current_showed < len(self.menus)):
-                self.menus[self.current_showed].display(self.screen)
+            if(self.current_displayed < len(self.screens)):
+                self.screens[self.current_displayed].display(self.screen)
 
             self.clock.tick()
             pygame.display.update()
