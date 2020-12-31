@@ -17,5 +17,5 @@ class Building(Tile):
     def display():
         print(img)
 
-    def apply():
+    def apply(self,personnage):
         print("effect")
