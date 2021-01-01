@@ -2,9 +2,8 @@ from src.tiles.Tile import Tile
 
 
 class Sidewalk(Tile):
-    img="S"
-    self.sprite = pygame.image.load(sprite)
-
+    def __init__(self, position):
+        super(Sidewalk, self).__init__(position, "files/images/tiles/sidewalk.png")
 
     def __str__(self):
         return "S"
@@ -13,9 +12,6 @@ class Sidewalk(Tile):
         if (personnage.movement_mode=="feet"):
             return True
         return False
-
-    def display(self, screen):
-        screen.blit(self.sprite, self.position)
 
     def apply(personnage):
         if (personnage.movement_mode=="feet"):

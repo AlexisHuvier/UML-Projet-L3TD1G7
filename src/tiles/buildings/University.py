@@ -5,10 +5,8 @@ class University(Building):
     """
     classe University
     """
-    self.sprite = pygame.image.load(sprite)
-    def __init__(self):
-        """Constructeur de notre classe"""
-        super()
+    def __init__(self, position):
+        super(University, self).__init__(position, "files/images/tiles/university.png")
 
     def __str__(self):
         """Méthode appelée lors d'une conversion de l'objet en chaîne"""

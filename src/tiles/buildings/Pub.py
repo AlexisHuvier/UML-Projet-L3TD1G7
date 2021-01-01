@@ -5,16 +5,12 @@ class Pub(Building):
     """
     classe pub
     """
-    self.sprite = pygame.image.load(sprite)
-    def __init__(self):
-        """Constructeur de notre classe"""
-        super()
+    def __init__(self, position):
+        super(Pub, self).__init__(position, "files/images/tiles/pub.png")
+
     def __str__(self):
         """Méthode appelée lors d'une conversion de l'objet en chaîne"""
         return "BP"
-
-    def display(self, screen):
-        screen.blit(self.sprite, self.position)
 
     def apply(self,personnage):
         p=random.randint(0,100)

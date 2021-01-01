@@ -2,9 +2,8 @@ from src.tiles.Tile import Tile
 
 
 class Road(Tile):
-    img="R"
-    self.sprite = pygame.image.load(sprite)
-
+    def __init__(self, position):
+        super(Road, self).__init__(position, "files/images/tiles/road.png")
 
     def __str__(self):
         return "R"
@@ -13,9 +12,6 @@ class Road(Tile):
         if (personnage.movement_mode=="car" or personnage.movement_mode=="bicycle"):
             return True
         return False
-
-    def display(self, screen):
-        screen.blit(self.sprite, self.position)
 
     def apply(personnage):
         if (personnage.movement_mode=="car" or personnage.movement_mode=="bicycle"):

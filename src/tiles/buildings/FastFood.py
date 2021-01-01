@@ -4,19 +4,13 @@ class FastFood(Building):
     """
     classe fast food
     """
-    self.sprite = pygame.image.load(sprite)
+    def __init__(self, position):
+        super(FastFood, self).__init__(position, "files/images/tiles/fastfood.png")
 
-    def __init__(self):
-        """Constructeur de notre classe"""
-        super()
     def __str__(self):
         """Méthode appelée lors d'une conversion de l'objet en chaîne"""
         return "BF"
-
-    def display(self, screen):
-        screen.blit(self.sprite, self.position)
-
-
+        
     def apply(self,personnage):
         personnage.mentality=personnage.mentality+10
         personnage.hydration=personnage.hydration+10

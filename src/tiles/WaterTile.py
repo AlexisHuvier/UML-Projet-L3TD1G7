@@ -2,9 +2,8 @@ from src.tiles.Tile import Tile
 
 
 class WaterTile(Tile):
-    img="W"
-    self.sprite = pygame.image.load(sprite)
-
+    def __init__(self, position):
+        super(WaterTile, self).__init__(position, "files/images/tiles/gray.png")
 
     def __str__(self):
         return "W"
@@ -13,9 +12,6 @@ class WaterTile(Tile):
         if (personnage.movement_mode=="foot" and personnage.has_swimsuit==True):
             return True
         return False
-
-    def display(self, screen):
-        screen.blit(self.sprite, self.position)
 
     def apply(self,personnage):
         print("effect")

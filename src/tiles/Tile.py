@@ -1,12 +1,14 @@
-
+import pygame
 
 
 class Tile:
     """
     classe Tile
     """
-    img="T"
-    self.sprite = pygame.image.load(sprite)
+
+    def __init__(self, position, sprite):
+        self.sprite = pygame.image.load(sprite)
+        self.position = position
 
     def __str__(self):
         return "tile affichage"

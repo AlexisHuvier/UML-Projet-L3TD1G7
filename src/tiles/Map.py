@@ -16,21 +16,22 @@ class Map:
     """
     classe Map
     """
-    case=[]
+    def __init__(self):
+        print("construct")
+        self.case=[]
 
     def generateTile(self,p,x,y):
         p=random.randint(0,100)
         if (p<33):
-            T=Forest()
+            T=Forest([x*64, y*64])
         elif (p<66):
-            T=GreyTile()
+            T=GreyTile([x*64, y*64])
         elif (p<101):
-            T=WaterTile()
+            T=WaterTile([x*64, y*64])
         return T
 
 
     def generateMap(self,x=10,y=10):
-
         b2=[0,0,0,0,0]
         housePos=[]
         for i in range(x):
@@ -61,11 +62,11 @@ class Map:
         for i in range(x*y//12):
             x1=random.randint(0,x-1)
             y1=random.randint(0,y-1)
-            self.case[x1][y1]=Road()
+            self.case[x1][y1]=Road([x1*64, y1*64])
         for i in range(x*y//12):
             x1=random.randint(0,x-1)
             y1=random.randint(0,y-1)
-            self.case[x1][y1]=Sidewalk()
+            self.case[x1][y1]=Sidewalk([x1*64, y1*64])
         for i in range(x):
             for j in range(y):
                 if (issubclass(self.case[i][j].__class__,Road)):
@@ -119,23 +120,12 @@ class Map:
         for i in range(x):
             for j in range(y):
                 if(self.case[i][j]=="R"):
-                    self.case[i][j]=Road()
+                    self.case[i][j]=Road([i*64, j*64])
                 if(self.case[i][j]=="S"):
-                    self.case[i][j]=Sidewalk()
+                    self.case[i][j]=Sidewalk([i*64, j*64])
         for i in range(len(b2)):
             if (b2[i]==0):
                 b2[i]=1
-                if (i==0):
-                    T=FastFood()
-                elif (i==1):
-                    T=House()
-                    housePos=[i,j]
-                elif (i==2):
-                    T=Library()
-                elif (i==3):
-                    T=Pub()
-                elif (i==4):
-                    T=University()
                 x2=random.randint(0,x-1)
                 y2=random.randint(0,y-1)
                 while ((issubclass(self.case[x2][y2].__class__,Building))):
@@ -143,10 +133,18 @@ class Map:
                     x2=random.randint(0,x-1)
                     y2=random.randint(0,y-1)
                 self.case[x2][y2]=T
+                if (i==0):
+                    T=FastFood([x2*64, y2*64])
+                elif (i==1):
+                    T=House([x2*64, y2*64])
+                    housePos=[i,j]
+                elif (i==2):
+                    T=Library([x2*64, y2*64])
+                elif (i==3):
+                    T=Pub([x2*64, y2*64])
+                elif (i==4):
+                    T=University([x2*64, y2*64])
         return housePos
-
-    def __init__(self):
-        print("map")
 
     def __str__(self):
         return "map affichage"
@@ -157,5 +155,7 @@ class Map:
                 print(self.case[i][j]," | ",end='')
             print()
 
-    def display(self):
-        print("display")
+    def display(self, screen):
+        for line in self.case:
+            for cell in line:
+                cell.display(screen)

@@ -3,6 +3,7 @@ import sys
 
 from src.menus import *
 from src.character import Hippy, HurriedMan, Standard
+from src.tiles import Map
 
 pygame.init()
 
@@ -13,6 +14,7 @@ class UMLProjet:
         
         self.width = 1200
         self.height = 900
+        self.map = Map()
 
         pygame.display.set_caption("UMLProjet")
         self.screen = pygame.display.set_mode((self.width, self.height))
@@ -32,12 +34,13 @@ class UMLProjet:
         self.current_displayed = new
     
     def create_player(self, type_):
+        posHouse = self.map.generateMap()
         if type_ == 0:
-            self.player = Standard(self, (100, 100), (0, 0), 0, False, 0)
+            self.player = Standard(self, [posHouse[0]*64, posHouse[1]*64], (0, 0), 0, False, 0)
         elif type_ == 1:
-            self.player = Hippy(self, (100, 100), (0, 0), 0, False, 0)
+            self.player = Hippy(self, [posHouse[0]*64, posHouse[1]*64], (0, 0), 0, False, 0)
         else:
-            self.player = HurriedMan(self, (100, 100), (0, 0), 0, False, 0)
+            self.player = HurriedMan(self, [posHouse[0]*64, posHouse[1]*64], (0, 0), 0, False, 0)
 
     def process_event(self, evt):
         if evt.type == pygame.QUIT:
@@ -60,6 +63,7 @@ class UMLProjet:
             if(self.current_displayed < len(self.screens)):
                 self.screens[self.current_displayed].display(self.screen)
             else:
+                self.map.display(self.screen)
                 self.player.display(self.screen)
 
             self.clock.tick()
