@@ -7,10 +7,10 @@ class SaveMenu:
         self.text = ""
         self.focus = False
         
-        self.background = pygame.Surface((800, 500), pygame.SRCALPHA, 32).convert_alpha()
+        self.background = pygame.Surface((1100, 800), pygame.SRCALPHA, 32).convert_alpha()
         self.background.fill((100, 100, 100))
-        self.title = pygame.font.SysFont("Arial", 22).render("Sauvegarder", True, (255, 255, 255))
-        self.title_size = pygame.font.SysFont("Arial", 22).size("Sauvegarder")
+        self.title = pygame.font.SysFont("Arial", 30).render("Sauvegarder", True, (255, 255, 255))
+        self.title_size = pygame.font.SysFont("Arial", 30).size("Sauvegarder")
 
         self.save_entry = pygame.Surface((400, 40), pygame.SRCALPHA, 32).convert_alpha()
         self.save_entry.fill((50, 50, 50))
@@ -43,11 +43,11 @@ class SaveMenu:
         y = 20 - self.save_tsize[1] / 2
 
         screen.blit(self.background, (50, 50))
-        screen.blit(self.title, (450-self.title_size[0]/2, 100-self.title_size[1]/2))
-        screen.blit(self.save_entry, (250, 255))
-        screen.blit(self.save_text, (250+x, 255+y))
-        screen.blit(self.save_button, (200, 400))
-        screen.blit(self.return_button, (500, 400))
+        screen.blit(self.title, (600-self.title_size[0]/2, 150-self.title_size[1]/2))
+        screen.blit(self.save_entry, (400, 450))
+        screen.blit(self.save_text, (400+x, 450+y))
+        screen.blit(self.save_button, (300, 725))
+        screen.blit(self.return_button, (750, 725))
     
     def process_event(self, evt):
         if evt.type == pygame.KEYDOWN and self.focus:
@@ -61,12 +61,12 @@ class SaveMenu:
                     self.text += evt.text
                     self.update_text()
         elif evt.type == pygame.MOUSEBUTTONDOWN and evt.button == pygame.BUTTON_LEFT:
-            if self.save_entry.get_rect(x=250, y=255).collidepoint(*evt.pos):
+            if self.save_entry.get_rect(x=400, y=450).collidepoint(*evt.pos):
                 self.focus = True
             else:
-                if self.save_button.get_rect(x=200, y=400).collidepoint(*evt.pos):
+                if self.save_button.get_rect(x=300, y=725).collidepoint(*evt.pos):
                     print("SAVE")
-                elif self.return_button.get_rect(x=500, y=400).collidepoint(*evt.pos):
+                elif self.return_button.get_rect(x=750, y=725).collidepoint(*evt.pos):
                     self.game.display(4)
                 self.focus = False
             
