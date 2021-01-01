@@ -4,6 +4,8 @@ class Building(Tile):
     """
     classe batiment
     """
+    self.sprite = pygame.image.load(sprite)
+
     def __init__(self):
         """Constructeur de notre classe"""
         print("building")
@@ -14,8 +16,8 @@ class Building(Tile):
     def can_go(self,personnage):
         return True
 
-    def display():
-        print(img)
+    def display(self, screen):
+        screen.blit(self.sprite, self.position)
 
     def apply(self,personnage):
         print("effect")

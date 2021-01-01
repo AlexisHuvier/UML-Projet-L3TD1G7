@@ -5,6 +5,7 @@ class University(Building):
     """
     classe University
     """
+    self.sprite = pygame.image.load(sprite)
     def __init__(self):
         """Constructeur de notre classe"""
         super()
@@ -12,9 +13,13 @@ class University(Building):
     def __str__(self):
         """Méthode appelée lors d'une conversion de l'objet en chaîne"""
         return "BU"
+
+    def display(self, screen):
+        screen.blit(self.sprite, self.position)
+
     def apply(self,personnage):
         p=random.randint(0,100)
-        if (p>=30+personnage.diplomaObtainingBonus):
+        if (p<=30+personnage.diplomaObtainingBonus):
             personnage.diplomaCounter+=1
             personnage.mentality+=5
             if (personnage.mentality>100):

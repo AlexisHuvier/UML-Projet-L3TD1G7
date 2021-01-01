@@ -30,7 +30,7 @@ class Map:
 
 
     def generateMap(self,x=10,y=10):
-        
+
         b2=[0,0,0,0,0]
         housePos=[]
         for i in range(x):
@@ -41,7 +41,7 @@ class Map:
 ##                    p=random.randint(0,4)
 ##                    if (b2[p]==0):
 ##                        b2[p]=1
-##                        if (p==0): 
+##                        if (p==0):
 ##                            T=FastFood()
 ##                        elif (p==1):
 ##                            T=House()
@@ -56,7 +56,7 @@ class Map:
 ##                        p=random.randint(1,5)
 ##                        T=self.generateTile(p,i,j)
 ##                else :
-                T=self.generateTile(p,i,j)  
+                T=self.generateTile(p,i,j)
                 self.case[i].append(T)
         for i in range(x*y//12):
             x1=random.randint(0,x-1)
@@ -81,13 +81,13 @@ class Map:
                         else :
                             while (x2<x-1):
                                 x2=x2+1
-                                self.case[x2][y2]="R"                     
+                                self.case[x2][y2]="R"
                     else :
                         r=random.randint(0,1)
                         if (r==0):
                             while (y2>=0):
                                 y2=y2-1
-                                self.case[x2][y2]="R" 
+                                self.case[x2][y2]="R"
                         else :
                             while (y2<y-1):
                                 y2=y2+1
@@ -105,13 +105,13 @@ class Map:
                         else :
                             while (x2<x-1):
                                 x2=x2+1
-                                self.case[x2][y2]="S"                     
+                                self.case[x2][y2]="S"
                     else :
                         r=random.randint(0,1)
                         if (r==0):
                             while (y2>=0):
                                 y2=y2-1
-                                self.case[x2][y2]="S" 
+                                self.case[x2][y2]="S"
                         else :
                             while (y2<y-1):
                                 y2=y2+1
@@ -125,7 +125,7 @@ class Map:
         for i in range(len(b2)):
             if (b2[i]==0):
                 b2[i]=1
-                if (i==0): 
+                if (i==0):
                     T=FastFood()
                 elif (i==1):
                     T=House()
@@ -144,19 +144,18 @@ class Map:
                     y2=random.randint(0,y-1)
                 self.case[x2][y2]=T
         return housePos
-    
+
     def __init__(self):
         print("map")
-        
+
     def __str__(self):
         return "map affichage"
 
     def affichage(self):
-        for i in range(len(self.case)): 
+        for i in range(len(self.case)):
             for j in range(len(self.case[i])):
                 print(self.case[i][j]," | ",end='')
             print()
-            
-    def display(self):
-        print("lol")
 
+    def display(self):
+        print("display")

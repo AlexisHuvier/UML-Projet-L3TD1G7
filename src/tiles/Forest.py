@@ -3,8 +3,8 @@ import random
 
 class Forest(Tile):
     img="F"
-    
-        
+    self.sprite = pygame.image.load(sprite)
+
     def __str__(self):
         return "F"
 
@@ -13,13 +13,10 @@ class Forest(Tile):
             return True
         return False
 
-    def display():
-        print(img)
-    
+    def display(self, screen):
+        screen.blit(self.sprite, self.position)
+
     def apply(self,personnage):
-        print("effect")
         r=random.uniform()
         if (r<=0.1):
             personnage.life-=10
-        
-        

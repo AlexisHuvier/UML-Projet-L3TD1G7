@@ -5,12 +5,16 @@ class Pub(Building):
     """
     classe pub
     """
+    self.sprite = pygame.image.load(sprite)
     def __init__(self):
         """Constructeur de notre classe"""
         super()
     def __str__(self):
         """Méthode appelée lors d'une conversion de l'objet en chaîne"""
         return "BP"
+
+    def display(self, screen):
+        screen.blit(self.sprite, self.position)
 
     def apply(self,personnage):
         p=random.randint(0,100)
@@ -21,5 +25,5 @@ class Pub(Building):
         if (personnage.hydration>100):
             personnage.hydration=100
         personnage.life-=3
-        if (p>=5):
+        if (p<=5):
             personnage.diplomaObtainingBonus+=5
