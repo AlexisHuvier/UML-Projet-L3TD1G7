@@ -7,7 +7,7 @@ class Character:
         self.hydration = hydration
         self.satiety = satiety
         self.mentality = mentality
-        self.sprite = pygame.image.load(sprite)
+        self.sprite = pygame.transform.scale2x(pygame.image.load(sprite))
         self.game = game                                # Liaison entre la ville et le personnage
         self.position = position                        # Position x et y courante
         self.go_position = go_position                  # Position x et y suivante
