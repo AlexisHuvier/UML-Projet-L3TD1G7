@@ -11,8 +11,8 @@ class UMLProjet:
         self.n = n
         self.m = m
         
-        self.width = 900
-        self.height = 600
+        self.width = 1200
+        self.height = 900
 
         pygame.display.set_caption("UMLProjet")
         self.screen = pygame.display.set_mode((self.width, self.height))
