@@ -3,7 +3,7 @@ from src.tiles.Tile import Tile
 
 class WaterTile(Tile):
     def __init__(self, position):
-        super(WaterTile, self).__init__(position, "files/images/tiles/gray.png")
+        super(WaterTile, self).__init__(position, "files/images/tiles/water.png")
 
     def __str__(self):
         return "W"

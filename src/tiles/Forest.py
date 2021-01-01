@@ -3,7 +3,7 @@ import random
 
 class Forest(Tile):
     def __init__(self, position):
-        super(Forest, self).__init__(position, "files/images/tiles/gray.png")
+        super(Forest, self).__init__(position, "files/images/tiles/forest.png")
 
     def __str__(self):
         return "F"
