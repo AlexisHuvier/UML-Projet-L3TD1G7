@@ -132,7 +132,6 @@ class Map:
                     print(not(issubclass(self.case[x2][y2].__class__,Building)),self.case[x2][y2].__class__)
                     x2=random.randint(0,x-1)
                     y2=random.randint(0,y-1)
-                self.case[x2][y2]=T
                 if (i==0):
                     T=FastFood([x2*64, y2*64])
                 elif (i==1):
@@ -144,6 +143,7 @@ class Map:
                     T=Pub([x2*64, y2*64])
                 elif (i==4):
                     T=University([x2*64, y2*64])
+                self.case[x2][y2]=T
         return housePos
 
     def __str__(self):

@@ -12,9 +12,6 @@ class University(Building):
         """Méthode appelée lors d'une conversion de l'objet en chaîne"""
         return "BU"
 
-    def display(self, screen):
-        screen.blit(self.sprite, self.position)
-
     def apply(self,personnage):
         p=random.randint(0,100)
         if (p<=30+personnage.diplomaObtainingBonus):
