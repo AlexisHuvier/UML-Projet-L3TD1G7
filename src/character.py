@@ -15,6 +15,9 @@ class Character:
         self.has_swimsuit = has_swimsuit
         self.arrest_count = arrest_count
 
+    def __str__(self):
+        return self.__class__.__name__+"(L:{}, H:{}, S:{}, M:{}, P:{}, GP:{}, MM:{}, HS:{}, AC:{})".format(self.life, self.hydration, self.satiety, self.mentality, self.position, self.go_position, self.movement_mode, self.has_swimsuit, self.arrest_count)
+
 
     def move(self):
         pass
