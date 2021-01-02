@@ -2,7 +2,7 @@ import pygame
 import sys
 
 from src.menus import *
-from src.character import Hippy, HurriedMan, Standard
+from src.Character import Hippy, HurriedMan, Standard
 from src.tiles import Map
 
 pygame.init()

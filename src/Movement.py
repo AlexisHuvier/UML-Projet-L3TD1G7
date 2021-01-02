@@ -1,4 +1,4 @@
-from src.character import *
+from src.Character import *
 from random import *
 
 class Movement:
