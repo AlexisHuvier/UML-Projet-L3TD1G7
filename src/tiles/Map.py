@@ -32,6 +32,7 @@ class Map:
 
 
     def generateMap(self,x=10,y=10):
+        self.case=[]
         b2=[0,0,0,0,0]
         housePos=[]
         for i in range(x):
