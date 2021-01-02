@@ -137,7 +137,7 @@ class Map:
                     T=FastFood([x2*64, y2*64])
                 elif (i==1):
                     T=House([x2*64, y2*64])
-                    housePos=[i,j]
+                    housePos=[x2,y2]
                 elif (i==2):
                     T=Library([x2*64, y2*64])
                 elif (i==3):
