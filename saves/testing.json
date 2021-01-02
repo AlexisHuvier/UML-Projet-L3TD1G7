@@ -1,0 +1,142 @@
+{
+    "player": {
+        "type": "Hippy",
+        "life": 75,
+        "hydration": 50,
+        "satiety": 50,
+        "mentality": 100,
+        "position": [
+            192,
+            384
+        ],
+        "go_position": [
+            0,
+            0
+        ],
+        "movement_mode": 0,
+        "has_swimsuit": false,
+        "arrest_count": 0
+    },
+    "map": [
+        [
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "GreyTile",
+            "WaterTile",
+            "Sidewalk",
+            "Sidewalk"
+        ],
+        [
+            "GreyTile",
+            "Road",
+            "WaterTile",
+            "Sidewalk",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road"
+        ],
+        [
+            "WaterTile",
+            "WaterTile",
+            "WaterTile",
+            "Sidewalk",
+            "Road",
+            "Road",
+            "Forest",
+            "Sidewalk",
+            "Forest",
+            "WaterTile"
+        ],
+        [
+            "Forest",
+            "WaterTile",
+            "WaterTile",
+            "Sidewalk",
+            "Road",
+            "Road",
+            "House",
+            "Sidewalk",
+            "Pub",
+            "GreyTile"
+        ],
+        [
+            "GreyTile",
+            "GreyTile",
+            "WaterTile",
+            "FastFood",
+            "Road",
+            "Road",
+            "GreyTile",
+            "Sidewalk",
+            "GreyTile",
+            "GreyTile"
+        ],
+        [
+            "GreyTile",
+            "Sidewalk",
+            "Sidewalk",
+            "Sidewalk",
+            "Road",
+            "Road",
+            "Sidewalk",
+            "Sidewalk",
+            "Sidewalk",
+            "Sidewalk"
+        ],
+        [
+            "Forest",
+            "WaterTile",
+            "GreyTile",
+            "Sidewalk",
+            "Road",
+            "Road",
+            "GreyTile",
+            "Sidewalk",
+            "Forest",
+            "Forest"
+        ],
+        [
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road",
+            "Road"
+        ],
+        [
+            "GreyTile",
+            "Forest",
+            "University",
+            "Sidewalk",
+            "Road",
+            "WaterTile",
+            "Forest",
+            "Sidewalk",
+            "GreyTile",
+            "WaterTile"
+        ],
+        [
+            "GreyTile",
+            "Library",
+            "WaterTile",
+            "Sidewalk",
+            "Road",
+            "Road",
+            "Forest",
+            "Sidewalk",
+            "GreyTile",
+            "GreyTile"
+        ]
+    ]
+}
