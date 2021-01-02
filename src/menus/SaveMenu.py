@@ -1,6 +1,8 @@
 import pygame
 import string
 
+from src.utils import Save
+
 class SaveMenu:
     def __init__(self, game):
         self.game = game
@@ -65,7 +67,19 @@ class SaveMenu:
                 self.focus = True
             else:
                 if self.save_button.get_rect(x=300, y=725).collidepoint(*evt.pos):
-                    print("SAVE")
+                    save = Save(self.text)
+                    save.set("player.type", self.game.player.__class__.__name__)
+                    save.set("player.life", self.game.player.life)
+                    save.set("player.hydration", self.game.player.hydration)
+                    save.set("player.satiety", self.game.player.satiety)
+                    save.set("player.mentality", self.game.player.mentality)
+                    save.set("player.position", list(self.game.player.position))
+                    save.set("player.go_position", list(self.game.player.go_position))
+                    save.set("player.movement_mode", self.game.player.movement_mode)
+                    save.set("player.has_swimsuit", self.game.player.has_swimsuit)
+                    save.set("player.arrest_count", self.game.player.arrest_count)
+                    save.set("map", [[cell.__class__.__name__ for cell in i]for i in self.game.map.case])
+                    save.save()
                 elif self.return_button.get_rect(x=750, y=725).collidepoint(*evt.pos):
                     self.game.display(4)
                 self.focus = False
