@@ -17,7 +17,6 @@ class Map:
     classe Map
     """
     def __init__(self):
-        print("construct")
         self.case=[]
 
     def generateTile(self,p,x,y):
