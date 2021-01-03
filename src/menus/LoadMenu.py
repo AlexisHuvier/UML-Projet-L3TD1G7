@@ -109,6 +109,8 @@ class LoadMenu:
                     self.game.player.movement_mode = save.get("player.movement_mode", 0)
                     self.game.player.has_swimsuit = bool(save.get("player.has_swimsuit", False))
                     self.game.player.arrest_count = save.get("player.arrest_count", 0)
+                    self.game.player.diplomaCounter = save.get("player.diploma_counter", 0)
+                    self.game.player.diplomaObtainingBonus = save.get("player.diploma_obtaining_bonus", 0)
                     self.game.display(5)
                 elif self.return_button.get_rect(x=750, y=725).collidepoint(*evt.pos):
                     self.game.display(4)

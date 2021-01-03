@@ -78,6 +78,8 @@ class SaveMenu:
                     save.set("player.movement_mode", self.game.player.movement_mode)
                     save.set("player.has_swimsuit", self.game.player.has_swimsuit)
                     save.set("player.arrest_count", self.game.player.arrest_count)
+                    save.set("player.diploma_counter", self.game.player.diplomaCounter)
+                    save.set("player.diploma_obtaining_bonus", self.game.player.diplomaObtainingBonus)
                     save.set("map", [[cell.__class__.__name__ for cell in i]for i in self.game.map.case])
                     save.save()
                 elif self.return_button.get_rect(x=750, y=725).collidepoint(*evt.pos):
