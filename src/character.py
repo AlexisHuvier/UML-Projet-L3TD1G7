@@ -21,10 +21,36 @@ class Character:
         return self.__class__.__name__+"(L:{}, H:{}, S:{}, M:{}, P:{}, GP:{}, MM:{}, HS:{}, AC:{}, DC:{}, DOB:{})".format(self.life, self.hydration, self.satiety, self.mentality, self.position, self.go_position, self.movement_mode, self.has_swimsuit, self.arrest_count, self.diplomaCounter, self.diplomaObtainingBonus)
 
     def move(self):
-        pass
+        moving = False
+        if self.position[0] < self.go_position[0] and self.game.map.get_case((self.position[0]+1, self.position[1])).can_go(self):
+            self.position[0] += 1
+            self.game.map.get_case(self.position).apply(self)
+            moving = True
+        elif self.position[0] > self.go_position[0] and self.game.map.get_case((self.position[0]-1, self.position[1])).can_go(self):
+            self.position[0] -= 1
+            self.game.map.get_case(self.position).apply(self)
+            moving = True
+        elif self.position[1] < self.go_position[1] and self.game.map.get_case((self.position[0], self.position[1]+1)).can_go(self):
+            self.position[1] += 1
+            self.game.map.get_case(self.position).apply(self)
+            moving = True
+        elif self.position[1] > self.go_position[1] and self.game.map.get_case((self.position[0], self.position[1]-1)).can_go(self):
+            self.position[1] -= 1
+            self.game.map.get_case(self.position).apply(self)
+            moving = True
+        
+        if moving:
+            from src.Movement import Movement
+            if self.movement_mode == 0:
+                Movement.applyFoot(self)
+            elif self.movement_mode == 1:
+                Movement.applyBike(self)
+            else:
+                Movement.applyCar(self)
+            print(self)
 
     def display(self, screen):
-        screen.blit(self.sprite, self.position)
+        screen.blit(self.sprite, (self.position[0]*64, self.position[1]*64))
 
 class Standard(Character):
 
