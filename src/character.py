@@ -14,10 +14,11 @@ class Character:
         self.movement_mode = movement_mode
         self.has_swimsuit = has_swimsuit
         self.arrest_count = arrest_count
+        self.diplomaCounter = 0
+        self.diplomaObtainingBonus = 0
 
     def __str__(self):
-        return self.__class__.__name__+"(L:{}, H:{}, S:{}, M:{}, P:{}, GP:{}, MM:{}, HS:{}, AC:{})".format(self.life, self.hydration, self.satiety, self.mentality, self.position, self.go_position, self.movement_mode, self.has_swimsuit, self.arrest_count)
-
+        return self.__class__.__name__+"(L:{}, H:{}, S:{}, M:{}, P:{}, GP:{}, MM:{}, HS:{}, AC:{}, DC:{}, DOB:{})".format(self.life, self.hydration, self.satiety, self.mentality, self.position, self.go_position, self.movement_mode, self.has_swimsuit, self.arrest_count, self.diplomaCounter, self.diplomaObtainingBonus)
 
     def move(self):
         pass
