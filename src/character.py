@@ -62,6 +62,7 @@ class Standard(Character):
         self.hydration -= 1
         self.satiety -= 1
         self.mentality -= 1
+        super(Standard, self).move()
 
 
 class Hippy(Character):
@@ -73,6 +74,7 @@ class Hippy(Character):
         self.life -= 0.5
         self.hydration -= 0.5
         self.satiety -= 0.5
+        super(Hippy, self).move()
 
 class HurriedMan(Character):
 
@@ -84,3 +86,4 @@ class HurriedMan(Character):
         self.hydration -= 1
         self.satiety -= 1
         self.mentality -= 1
+        super(HurriedMan, self).move()
