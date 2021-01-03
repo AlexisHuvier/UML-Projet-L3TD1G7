@@ -26,6 +26,7 @@ class UMLProjet:
 
         self.clock = pygame.time.Clock()
         self.is_running = False
+        self.time_move = 30
 
     def stop(self):
         self.is_running = False
@@ -36,11 +37,11 @@ class UMLProjet:
     def create_player(self, type_):
         posHouse = self.map.generateMap(self.n, self.m)
         if type_ == 0:
-            self.player = Standard(self, [posHouse[0]*64, posHouse[1]*64], (0, 0), 0, False, 0)
+            self.player = Standard(self, posHouse, (0, 0), 0, False, 0)
         elif type_ == 1:
-            self.player = Hippy(self, [posHouse[0]*64, posHouse[1]*64], (0, 0), 0, False, 0)
+            self.player = Hippy(self, posHouse, (0, 0), 0, False, 0)
         else:
-            self.player = HurriedMan(self, [posHouse[0]*64, posHouse[1]*64], (0, 0), 0, False, 0)
+            self.player = HurriedMan(self, posHouse, (0, 0), 0, False, 0)
 
     def process_event(self, evt):
         if evt.type == pygame.QUIT:
@@ -65,8 +66,12 @@ class UMLProjet:
             else:
                 self.map.display(self.screen)
                 self.player.display(self.screen)
+                self.time_move -= 1
+                if self.time_move == 0:
+                    self.player.move()
+                    self.time_move = 30
 
-            self.clock.tick()
+            self.clock.tick(60)
             pygame.display.update()
         pygame.quit()
 
