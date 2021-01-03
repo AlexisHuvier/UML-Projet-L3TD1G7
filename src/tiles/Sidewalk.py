@@ -1,4 +1,5 @@
 from src.tiles.Tile import Tile
+import random
 
 
 class Sidewalk(Tile):
@@ -8,13 +9,11 @@ class Sidewalk(Tile):
     def __str__(self):
         return "S"
 
-    def can_go(self,Personnage):
-        if (personnage.movement_mode=="feet"):
-            return True
-        return False
+    def can_go(self,personnage):
+        return personnage.movement_mode==0
 
-    def apply(personnage):
-        if (personnage.movement_mode=="feet"):
+    def apply(self, personnage):
+        if (personnage.movement_mode==0):
             p=random.randint(0,100)
             if (p<=5):
                 p=random.randint(0,2)

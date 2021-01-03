@@ -1,5 +1,5 @@
 from src.tiles.Tile import Tile
-
+import random
 
 class WaterTile(Tile):
     def __init__(self, position):
@@ -9,12 +9,10 @@ class WaterTile(Tile):
         return "W"
 
     def can_go(self,personnage):
-        if (personnage.movement_mode=="foot" and personnage.has_swimsuit==True):
-            return True
-        return False
+        return personnage.movement_mode==0 and personnage.has_swimsuit==True
 
     def apply(self,personnage):
         print("effect")
-        r=random.uniform()
+        r=random.uniform(0, 1)
         if (r<=0.05):
             personnage.life-=10

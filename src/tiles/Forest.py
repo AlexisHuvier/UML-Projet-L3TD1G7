@@ -9,11 +9,9 @@ class Forest(Tile):
         return "F"
 
     def can_go(self,personnage):
-        if (personnage.movement_mode=="foot" or personnage.movement_mode=="bicycle"):
-            return True
-        return False
+        return personnage.movement_mode==0 or personnage.movement_mode==1
 
     def apply(self,personnage):
-        r=random.uniform()
+        r=random.uniform(0, 1)
         if (r<=0.1):
             personnage.life-=10

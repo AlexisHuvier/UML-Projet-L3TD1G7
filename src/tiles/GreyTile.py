@@ -8,5 +8,5 @@ class GreyTile(Tile):
     def __str__(self):
         return "G"
 
-    def can_go(self,Personnage):
+    def can_go(self,personnage):
         return False
