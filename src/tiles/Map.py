@@ -159,3 +159,6 @@ class Map:
         for line in self.case:
             for cell in line:
                 cell.display(screen)
+
+    def get_case(self, position):
+        return self.case[position[0]][position[1]]
