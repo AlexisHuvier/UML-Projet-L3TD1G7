@@ -1,4 +1,4 @@
-from src.Character import *
+from src.Character import Standard, Hippy, HurriedMan
 from random import *
 
 class Movement:
