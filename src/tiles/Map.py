@@ -144,7 +144,22 @@ class Map:
                 elif (i==4):
                     T=University([x2*64, y2*64])
                 self.case[x2][y2]=T
-        return housePos
+        buildingsPos={}
+        for i in range(x):
+            for j in range(y):
+                if (isinstance(self.case[i][j],House)):
+                    buildingsPos["House"]=[i,j]
+                elif  (isinstance(self.case[i][j],Pub)):
+                    buildingsPos["Pub"]=[i,j]
+                elif  (isinstance(self.case[i][j],FastFood)):
+                    buildingsPos["FastFood"]=[i,j]
+                elif  (isinstance(self.case[i][j],Library)):
+                    buildingsPos["Library"]=[i,j]
+                elif  (isinstance(self.case[i][j],University)):
+                    buildingsPos["University"]=[i,j]
+        #for i in buildingsPos:
+        #    print(i," : ",buildingsPos.get(i))
+        return buildingsPos
 
     def __str__(self):
         return "map affichage"
