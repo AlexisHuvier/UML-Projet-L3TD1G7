@@ -18,11 +18,11 @@ class Sidewalk(Tile):
             if (p<=5):
                 p=random.randint(0,2)
                 if (p==0):
-                    personnage.applyBananaPeel()
+                    applyBananaPeel(personnage)
                 elif (p==1):
-                    personnage.applyPoo()
+                    applyPoo(personnage)
                 else:
-                    personnage.applyStroller()
+                    applyStroller(personnage)
 
 
 ##        if (r<=0.02):

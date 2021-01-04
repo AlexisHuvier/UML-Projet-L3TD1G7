@@ -9,7 +9,7 @@ class Character:
         self.mentality = mentality
         self.sprite = pygame.transform.scale2x(pygame.image.load(sprite))
         self.game = game                                # Liaison entre la ville et le personnage
-        self.position = position                        # Position x et y courante
+        self.position = position["House"]                        # Position x et y courante
         self.go_position = go_position                  # Position x et y suivante
         self.movement_mode = movement_mode
         self.has_swimsuit = has_swimsuit
@@ -38,7 +38,7 @@ class Character:
             self.position[1] -= 1
             self.game.map.get_case(self.position).apply(self)
             moving = True
-        
+
         if moving:
             from src.Movement import Movement
             if self.movement_mode == 0:
@@ -56,7 +56,7 @@ class Standard(Character):
 
     def __init__(self, game, position, go_position, movement_mode, has_swimsuit, arrest_count):
         super().__init__(75, 75, 75, 75, "files/images/standard.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
-    
+
     def move(self):
         self.life -= 1
         self.hydration -= 1
@@ -69,7 +69,7 @@ class Hippy(Character):
 
     def __init__(self, game, position, go_position, movement_mode, has_swimsuit, arrest_count):
         super().__init__(75, 50, 50, 100, "files/images/hippie.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
-    
+
     def move(self):
         self.life -= 0.5
         self.hydration -= 0.5
@@ -80,7 +80,7 @@ class HurriedMan(Character):
 
     def __init__(self, game, position, go_position, movement_mode, has_swimsuit, arrest_count):
         super().__init__(100, 75, 75, 50, "files/images/presse.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
-    
+
     def move(self):
         self.life -= 1
         self.hydration -= 1
