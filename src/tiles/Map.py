@@ -41,10 +41,10 @@ class Map:
             x1=random.randint(0,x-1)
             y1=random.randint(0,y-1)
             while (issubclass(self.case[x1][y1].__class__,Building)):
-                print("!",self.case[x1][y1])
+                #print("!",self.case[x1][y1])
                 x1=random.randint(0,x-1)
                 y1=random.randint(0,y-1)
-            print("<>",self.case[x1][y1])
+            #print("<>",self.case[x1][y1])
             if (i==0):
                 self.case[x1][y1]=House([x1*64, y1*64])
                 buildingsPos["House"]=[x1,y1]
