@@ -24,15 +24,17 @@ class Character:
         return self.__class__.__name__+"(L:{}, H:{}, S:{}, M:{}, P:{}, GP:{}, MM:{}, HS:{}, AC:{}, DC:{}, DOB:{})".format(self.life, self.hydration, self.satiety, self.mentality, self.position, self.go_position, self.movement_mode, self.has_swimsuit, self.arrest_count, self.diplomaCounter, self.diplomaObtainingBonus)
 
     def move(self):
+        moving = False
         if not self.dead:
             if self.life <= 0 or self.satiety <= 0 or self.hydration <= 0 or self.mentality <= 0:
+                print(self)
                 print("Le personnage est mort")
                 self.dead = True
             elif self.arrest_count >= 3:
+                print(self)
                 print("Le personnage a fini en prison")
                 self.dead = True
             else:
-                moving = False
                 if self.position[0] < self.go_position[0] and self.game.map.get_case((self.position[0]+1, self.position[1])).can_go(self):
                     self.position[0] += 1
                     self.game.map.get_case(self.position).apply(self)
@@ -59,6 +61,7 @@ class Character:
                     else:
                         Movement.applyCar(self)
                     print(self)
+        return moving
             
 
     def display(self, screen):
@@ -70,12 +73,12 @@ class Standard(Character):
         super().__init__(75, 75, 75, 75, "files/images/standard.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
 
     def move(self):
-        self.life -= 1
-        self.hydration -= 1
-        self.satiety -= 1
-        self.mentality -= 1
-        super(Standard, self).move()
-
+        if super(Standard, self).move():
+            self.life -= 1
+            self.hydration -= 1
+            self.satiety -= 1
+            self.mentality -= 1
+        
 
 class Hippy(Character):
 
@@ -83,10 +86,10 @@ class Hippy(Character):
         super().__init__(75, 50, 50, 100, "files/images/hippie.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
 
     def move(self):
-        self.life -= 0.5
-        self.hydration -= 0.5
-        self.satiety -= 0.5
-        super(Hippy, self).move()
+        if super(Hippy, self).move():
+            self.life -= 0.5
+            self.hydration -= 0.5
+            self.satiety -= 0.5
 
 class HurriedMan(Character):
 
@@ -94,8 +97,9 @@ class HurriedMan(Character):
         super().__init__(100, 75, 75, 50, "files/images/presse.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
 
     def move(self):
-        self.life -= 1
-        self.hydration -= 1
-        self.satiety -= 1
-        self.mentality -= 1
-        super(HurriedMan, self).move()
+        if super(HurriedMan, self).move():
+            self.life -= 1
+            self.hydration -= 1
+            self.satiety -= 1
+            self.mentality -= 1
+        
