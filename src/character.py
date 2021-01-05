@@ -9,7 +9,7 @@ class Character:
         self.mentality = mentality
         self.sprite = pygame.transform.scale2x(pygame.image.load(sprite))
         self.game = game                                # Liaison entre la ville et le personnage
-        self.position = position["House"]                        # Position x et y courante
+        self.position = position                        # Position x et y courante
         self.go_position = go_position                  # Position x et y suivante
         self.movement_mode = movement_mode
         self.has_swimsuit = has_swimsuit

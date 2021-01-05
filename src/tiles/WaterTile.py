@@ -12,7 +12,6 @@ class WaterTile(Tile):
         return personnage.movement_mode==0 and personnage.has_swimsuit==True
 
     def apply(self,personnage):
-        print("effect")
         r=random.uniform(0, 1)
         if (r<=0.05):
             personnage.life-=10

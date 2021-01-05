@@ -24,12 +24,3 @@ class Sidewalk(Tile):
                     Trap.applyPoo(personnage)
                 else:
                     Trap.applyStroller(personnage)
-
-
-##        if (r<=0.02):
-##            personnage.life-=100
-##        r=random.uniform()
-##        if (r<=0.05):
-##            personnage.arrest_count+=1
-##            if (personnage.arrest_count>=3):
-##                personnage.life-=100

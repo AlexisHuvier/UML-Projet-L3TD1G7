@@ -23,12 +23,3 @@ class Road(Tile):
                     Trap.applyPolice(personnage)
                 else:
                     Trap.applyPotHole(personnage)
-
-
-##        if (r<=0.02):
-##            personnage.life-=100
-##        r=random.uniform(0, 1)
-##        if (r<=0.05):
-##            personnage.arrest_count+=1
-##            if (personnage.arrest_count>=3):
-##                personnage.life-=100

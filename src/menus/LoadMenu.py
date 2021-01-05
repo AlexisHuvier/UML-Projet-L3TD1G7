@@ -84,28 +84,30 @@ class LoadMenu:
                             for y, cell in enumerate(line):
                                 if cell == "House":
                                     house_pos = [x, y]
+                                elif cell == "University":
+                                    univ_pos = [x, y]
                                 self.game.map.case[x].append(eval(cell+"((x*64, y*64))"))
                     type_ = save.get("player.type", "Standard")
                     if type_ == "Standard":
-                        self.game.player = Standard(self.game, house_pos, (0, 0), 0, False, 0)
+                        self.game.player = Standard(self.game, house_pos, univ_pos, 0, False, 0)
                         self.game.player.life = save.get("player.life", 75)
                         self.game.player.hydration = save.get("player.hydration", 75)
                         self.game.player.satiety = save.get("player.satiery", 75)
                         self.game.player.mentality = save.get("player.mentality", 75)
                     elif type_ == "Hippy":
-                        self.game.player = Hippy(self.game, house_pos, (0, 0), 0, False, 0)
+                        self.game.player = Hippy(self.game, house_pos, univ_pos, 0, False, 0)
                         self.game.player.life = save.get("player.life", 75)
                         self.game.player.hydration = save.get("player.hydration", 50)
                         self.game.player.satiety = save.get("player.satiery", 50)
                         self.game.player.mentality = save.get("player.mentality", 100)
                     else:
-                        self.game.player = HurriedMan(self.game, house_pos, (0, 0), 0, False, 0)
+                        self.game.player = HurriedMan(self.game, house_pos, univ_pos, 0, False, 0)
                         self.game.player.life = save.get("player.life", 100)
                         self.game.player.hydration = save.get("player.hydration", 75)
                         self.game.player.satiety = save.get("player.satiery", 75)
                         self.game.player.mentality = save.get("player.mentality", 50)
                     self.game.player.position = save.get("player.position", house_pos)
-                    self.game.player.go_position = save.get("player.go_position", (0, 0))
+                    self.game.player.go_position = save.get("player.go_position", univ_pos)
                     self.game.player.movement_mode = save.get("player.movement_mode", 0)
                     self.game.player.has_swimsuit = bool(save.get("player.has_swimsuit", False))
                     self.game.player.arrest_count = save.get("player.arrest_count", 0)
