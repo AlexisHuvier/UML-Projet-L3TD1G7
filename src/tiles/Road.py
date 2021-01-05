@@ -1,4 +1,5 @@
 from src.tiles.Tile import Tile
+from src.Trap import Trap
 import random
 
 class Road(Tile):
@@ -17,11 +18,11 @@ class Road(Tile):
             if (p<=5):
                 p=random.randint(0,2)
                 if (p==0):
-                    Trap.applyRedTrafficLight(personnage)
+                    classmethod(Trap.applyRedTrafficLight(personnage))
                 elif (p==1):
-                    Trap.applyPolice(personnage)
+                    classmethod(Trap.applyPolice(personnage))
                 else:
-                    Trap.applyPotHole(personnage)
+                    classmethod(Trap.applyPotHole(personnage))
 
 
 ##        if (r<=0.02):

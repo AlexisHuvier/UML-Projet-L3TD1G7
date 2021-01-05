@@ -1,4 +1,5 @@
 from src.tiles.Tile import Tile
+from src.Trap import Trap
 import random
 
 
@@ -18,11 +19,11 @@ class Sidewalk(Tile):
             if (p<=5):
                 p=random.randint(0,2)
                 if (p==0):
-                    Trap.applyBananaPeel(personnage)
+                    classmethod(Trap.applyBananaPeel(personnage))
                 elif (p==1):
-                    Trap.applyPoo(personnage)
+                    classmethod(Trap.applyPoo(personnage))
                 else:
-                    Trap.applyStroller(personnage)
+                    classmethod(Trap.applyStroller(personnage))
 
 
 ##        if (r<=0.02):
