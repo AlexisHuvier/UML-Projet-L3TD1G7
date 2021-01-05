@@ -37,11 +37,11 @@ class UMLProjet:
     def create_player(self, type_):
         posBuildings = self.map.generateMap(self.n, self.m)
         if type_ == 0:
-            self.player = Standard(self, posBuildings["House"], posBuildings["University"], 0, False, 0)
+            self.player = Standard(self, posBuildings["House"], posBuildings["House"], 0, False, 0)
         elif type_ == 1:
-            self.player = Hippy(self, posBuildings["House"], posBuildings["University"], 0, False, 0)
+            self.player = Hippy(self, posBuildings["House"], posBuildings["House"], 0, False, 0)
         else:
-            self.player = HurriedMan(self, posBuildings["House"], posBuildings["University"], 0, False, 0)
+            self.player = HurriedMan(self, posBuildings["House"], posBuildings["House"], 0, False, 0)
 
     def process_event(self, evt):
         if evt.type == pygame.QUIT:
