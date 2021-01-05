@@ -18,11 +18,11 @@ class Road(Tile):
             if (p<=5):
                 p=random.randint(0,2)
                 if (p==0):
-                    classmethod(Trap.applyRedTrafficLight(personnage))
+                    Trap.applyRedTrafficLight(personnage)
                 elif (p==1):
-                    classmethod(Trap.applyPolice(personnage))
+                    Trap.applyPolice(personnage)
                 else:
-                    classmethod(Trap.applyPotHole(personnage))
+                    Trap.applyPotHole(personnage)
 
 
 ##        if (r<=0.02):
