@@ -26,7 +26,10 @@ Au cours du jeu, les informations du personnage vont être affichés dans la con
 * DC : Nombre de diplomes
 * DOB : Bonus d'obtention de diplome
 
-> **Note**: Pour mettre en pause le jeu, appuyez sur P
+Touches pour jouer :
+
+* P : Mettre en pause le jeu
+* Flèches : Déplacements
 
 > **Note**: Le jeu a deux arguments optionnels : la largeur et la taille de la map.
 
@@ -41,4 +44,4 @@ Au cours du jeu, les informations du personnage vont être affichés dans la con
 * Chargement possible via le menu principal
 * Affichage fait via PyGame
 * Génération Aléatoire de la map
-* IA Simpliste
+* Déplacements par le joueur
