@@ -12,9 +12,9 @@ Projet UML L3 TD1 G7 2020
 * Installer les dépendances : pip install pygame
 * Lancer le jeu : python .\UMLProjet.py
 
-* Pour mettre en pause le jeu, appuyez sur P
-* Le jeu a deux arguments optionnels : la largeur et la taille de la map.
-* Attention, les mettre trop petits peuvent générer des soucis et les mettre trop rend, n'affichera pas toute la map.
+> **Note**: Pour mettre en pause le jeu, appuyez sur P
+> **Note**: Le jeu a deux arguments optionnels : la largeur et la taille de la map.
+> **WARNING**: Attention, les mettre trop petits peuvent générer des soucis et les mettre trop rend, n'affichera pas toute la map.
 
 ## Fonctionnalités
 
