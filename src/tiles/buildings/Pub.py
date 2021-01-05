@@ -15,7 +15,7 @@ class Pub(Building):
     def apply(self,personnage):
         p=random.randint(0,100)
         personnage.hydration+=25
-        personnage.mentality+=25
+        personnage.mentality+=10
         if (personnage.mentality>100):
             personnage.mentality=100
         if (personnage.hydration>100):
