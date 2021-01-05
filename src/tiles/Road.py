@@ -10,7 +10,8 @@ class Road(Tile):
         return "R"
 
     def can_go(self,personnage):
-        return personnage.movement_mode==2 or personnage.movement_mode==1
+        personnage.movement_mode = 2
+        return True
 
     def apply(self, personnage):
         if (personnage.movement_mode==2 or personnage.movement_mode==1):

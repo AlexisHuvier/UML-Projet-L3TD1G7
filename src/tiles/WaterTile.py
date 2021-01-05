@@ -9,7 +9,10 @@ class WaterTile(Tile):
         return "W"
 
     def can_go(self,personnage):
-        return personnage.movement_mode==0 and personnage.has_swimsuit==True
+        if personnage.has_swimsuit:
+            personnage.movement_mode = 0
+            return True
+        return False
 
     def apply(self,personnage):
         r=random.uniform(0, 1)

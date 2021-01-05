@@ -11,7 +11,8 @@ class Sidewalk(Tile):
         return "S"
 
     def can_go(self,personnage):
-        return personnage.movement_mode==0
+        personnage.movement_mode = 0
+        return True
 
     def apply(self, personnage):
         if (personnage.movement_mode==0):

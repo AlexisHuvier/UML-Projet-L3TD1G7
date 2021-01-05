@@ -9,7 +9,8 @@ class Forest(Tile):
         return "F"
 
     def can_go(self,personnage):
-        return personnage.movement_mode==0 or personnage.movement_mode==1
+        personnage.movement_mode = 0
+        return True
 
     def apply(self,personnage):
         r=random.uniform(0, 1)
