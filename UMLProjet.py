@@ -50,8 +50,21 @@ class UMLProjet:
             if(self.current_displayed < len(self.screens)):
                 self.screens[self.current_displayed].process_event(evt)
             else:
-                if evt.type == pygame.KEYDOWN and evt.key == pygame.K_p:
-                    self.display(4)
+                if evt.type == pygame.KEYDOWN:
+                    if evt.key == pygame.K_p:
+                        self.display(4)
+                    elif evt.key == pygame.K_LEFT:
+                        if self.player.position[0] > 0:
+                            self.player.go_position = (self.player.position[0] - 1, self.player.position[1])
+                    elif evt.key == pygame.K_RIGHT:
+                        if self.player.position[0] < self.n - 1:
+                            self.player.go_position = (self.player.position[0] + 1, self.player.position[1])
+                    elif evt.key == pygame.K_UP:
+                        if self.player.position[1] > 0:
+                            self.player.go_position = (self.player.position[0], self.player.position[1] - 1)
+                    elif evt.key == pygame.K_DOWN:
+                        if self.player.position[1] < self.m - 1:
+                            self.player.go_position = (self.player.position[0], self.player.position[1] + 1)
 
     def run(self):
         self.is_running = True
