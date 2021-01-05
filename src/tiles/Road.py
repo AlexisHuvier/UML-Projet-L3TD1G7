@@ -1,5 +1,6 @@
 from src.tiles.Tile import Tile
 from src.Trap import Trap
+from src.Character import Hippy
 import random
 
 class Road(Tile):
@@ -10,7 +11,10 @@ class Road(Tile):
         return "R"
 
     def can_go(self,personnage):
-        personnage.movement_mode = 2
+        if(isinstance(personnage, Hippy)):
+            personnage.movement_mode = 1
+        else:
+            personnage.movement_mode = 2
         return True
 
     def apply(self, personnage):
