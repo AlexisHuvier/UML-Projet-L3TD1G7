@@ -23,6 +23,7 @@ class Movement:
         p_arrest = uniform(0,1)
         if(p_arrest <= 0.05):
             character.arrest_count += 1
+            print("Le personnage s'est fait arrêté")
         if(isinstance(character, HurriedMan)):
             character.mentality -= 2
     
