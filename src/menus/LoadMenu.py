@@ -113,5 +113,5 @@ class LoadMenu:
                     self.game.player.diplomaObtainingBonus = save.get("player.diploma_obtaining_bonus", 0)
                     self.game.display(5)
                 elif self.return_button.get_rect(x=750, y=725).collidepoint(*evt.pos):
-                    self.game.display(4)
+                    self.game.display(0)
                 self.focus = False
