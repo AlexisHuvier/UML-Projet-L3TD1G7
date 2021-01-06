@@ -91,15 +91,15 @@ class UMLProjet:
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
-        n = 10
-        m = 10
+        n = 5
+        m = 5
     else:
         try:
             n = int(sys.argv[1])
             m = int(sys.argv[2])
         except ValueError:
             print("Error : Width and height must be integer")
-            n = 10
-            m = 10
+            n = 5
+            m = 5
     project = UMLProjet(n, m)
     project.run()
