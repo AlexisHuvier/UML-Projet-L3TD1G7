@@ -33,7 +33,7 @@ Touches pour jouer :
 
 > **Note**: Le jeu a deux arguments optionnels : la largeur et la taille de la map.
 
-> **WARNING**: Attention, les mettre trop petits peuvent générer des soucis et les mettre trop grand, n'affichera pas toute la map.
+> **WARNING**: Attention, les mettre trop petits peuvent générer des soucis (il faut minimum 5 cases) et les mettre trop grand, n'affichera pas toute la map (maximum 18 pour n et 14 pour m).
 
 ## Fonctionnalités
 
