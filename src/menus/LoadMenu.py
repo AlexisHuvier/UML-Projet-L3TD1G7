@@ -13,11 +13,13 @@ class LoadMenu:
         self.text = ""
         self.focus = False
         
+        # Création du fond
         self.background = pygame.Surface((1100, 800), pygame.SRCALPHA, 32).convert_alpha()
         self.background.fill((100, 100, 100))
         self.title = pygame.font.SysFont("Arial", 30).render("Charger Sauvegarde", True, (255, 255, 255))
         self.title_size = pygame.font.SysFont("Arial", 30).size("Charger Sauvegarde")
 
+        # Création d'entrée du nom de sauvegarde
         self.save_entry = pygame.Surface((400, 40), pygame.SRCALPHA, 32).convert_alpha()
         self.save_entry.fill((50, 50, 50))
         white = pygame.Surface((392, 32))
@@ -26,12 +28,14 @@ class LoadMenu:
         self.save_text = pygame.font.SysFont("Arial", 16).render(self.text, True, (0, 0, 0))
         self.save_tsize = pygame.font.SysFont("Arial", 16).size(self.text)
 
+        # Création du boutton Charger
         self.load_button = pygame.Surface((200, 40), pygame.SRCALPHA, 32).convert_alpha()
         self.load_button.fill((50, 50, 50))
         save_title = pygame.font.SysFont("Arial", 16).render("Charger", True, (255, 255, 255))
         save_size = pygame.font.SysFont("Arial", 16).size("Charger")
         self.load_button.blit(save_title, (100 - save_size[0]/2, 20 - save_size[1]/2))
 
+        # Création du bouton Retour
         self.return_button = pygame.Surface((200, 40), pygame.SRCALPHA, 32).convert_alpha()
         self.return_button.fill((50, 50, 50))
         return_title = pygame.font.SysFont("Arial", 16).render("Retour", True, (255, 255, 255))
@@ -57,20 +61,21 @@ class LoadMenu:
     
     def process_event(self, evt):
         if evt.type == pygame.KEYDOWN and self.focus:
-            if evt.key == pygame.K_BACKSPACE:
+            if evt.key == pygame.K_BACKSPACE: # Effacer du texte
                 if len(self.text):
                     self.text = self.text[:-1]
                     self.update_text()
-        elif evt.type == pygame.TEXTINPUT and self.focus:
-            if evt.text in string.ascii_letters+string.digits+" ":
+        elif evt.type == pygame.TEXTINPUT and self.focus: # Ecrire du texte
+            if evt.text in string.ascii_letters+string.digits+" ": 
                 if self.save_tsize[0] < 365:
                     self.text += evt.text
                     self.update_text()
         elif evt.type == pygame.MOUSEBUTTONDOWN and evt.button == pygame.BUTTON_LEFT:
-            if self.save_entry.get_rect(x=400, y=450).collidepoint(*evt.pos):
+            if self.save_entry.get_rect(x=400, y=450).collidepoint(*evt.pos): # Appui sur la barre d'entrée de text
                 self.focus = True
             else:
-                if self.load_button.get_rect(x=300, y=725).collidepoint(*evt.pos):
+                if self.load_button.get_rect(x=300, y=725).collidepoint(*evt.pos): # Appui sur le bouton Charger
+                    # Chargement
                     save = Save(self.text)
                     save.load()
                     self.game.map.case = []
@@ -114,6 +119,6 @@ class LoadMenu:
                     print("LOAD GAME")
                     print(self.game.player)
                     self.game.display(5)
-                elif self.return_button.get_rect(x=750, y=725).collidepoint(*evt.pos):
+                elif self.return_button.get_rect(x=750, y=725).collidepoint(*evt.pos): # Appui sur le bouton Retour
                     self.game.display(0)
                 self.focus = False

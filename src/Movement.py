@@ -4,7 +4,7 @@ from random import *
 class Movement:
 
     @classmethod
-    def applyFoot(cls, character):
+    def applyFoot(cls, character): # Déplacement à pied
         if(isinstance(character, Standard)):
             character.hydration -= 10
             character.satiety -= 10
@@ -15,7 +15,7 @@ class Movement:
             character.mentality -= 2
     
     @classmethod
-    def applyCar(cls, character):
+    def applyCar(cls, character): # Déplacement en voiture
         p_death = uniform(0,1)
         if(p_death <= 0.02):
             character.life = 0
@@ -28,7 +28,7 @@ class Movement:
             character.mentality -= 2
     
     @classmethod
-    def applyBike(cls, character):
+    def applyBike(cls, character): # Déplacement à vélo
         p_death = uniform(0,1)
         if(p_death <= 0.005):
             character.life = 0

@@ -33,26 +33,26 @@ class Character:
                 print("Le personnage a fini en prison")
                 self.dead = True
             else:
-                if self.position[0] < self.go_position[0] and self.game.map.get_case((self.position[0]+1, self.position[1])).can_go(self):
+                if self.position[0] < self.go_position[0] and self.game.map.get_case((self.position[0]+1, self.position[1])).can_go(self): # Se déplace à droite
                     self.position[0] += 1
                     self.game.map.get_case(self.position).apply(self)
                     moving = True
-                elif self.position[0] > self.go_position[0] and self.game.map.get_case((self.position[0]-1, self.position[1])).can_go(self):
+                elif self.position[0] > self.go_position[0] and self.game.map.get_case((self.position[0]-1, self.position[1])).can_go(self): # Se déplace à gauche
                     self.position[0] -= 1
                     self.game.map.get_case(self.position).apply(self)
                     moving = True
-                elif self.position[1] < self.go_position[1] and self.game.map.get_case((self.position[0], self.position[1]+1)).can_go(self):
+                elif self.position[1] < self.go_position[1] and self.game.map.get_case((self.position[0], self.position[1]+1)).can_go(self): # Se déplace en bas
                     self.position[1] += 1
                     self.game.map.get_case(self.position).apply(self)
                     moving = True
-                elif self.position[1] > self.go_position[1] and self.game.map.get_case((self.position[0], self.position[1]-1)).can_go(self):
+                elif self.position[1] > self.go_position[1] and self.game.map.get_case((self.position[0], self.position[1]-1)).can_go(self): # Se déplace en haut
                     self.position[1] -= 1
                     self.game.map.get_case(self.position).apply(self)
                     moving = True
 
                 if moving:
                     from src.tiles.buildings import Building
-                    if not issubclass(self.game.map.get_case(self.position).__class__, Building):
+                    if not issubclass(self.game.map.get_case(self.position).__class__, Building): # Si on est pas sur un batiment, on applique les effets des modes de déplacement
                         from src.Movement import Movement
                         if self.movement_mode == 0:
                             Movement.applyFoot(self)
@@ -72,7 +72,7 @@ class Standard(Character):
         super().__init__(75, 75, 75, 75, "files/images/standard.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
 
     def move(self):
-        if super(Standard, self).move():
+        if super(Standard, self).move(): # Si le personnage ne bouge pas, on n'applique pas les effets de déplacements
             self.life -= 1
             self.hydration -= 1
             self.satiety -= 1
@@ -86,7 +86,7 @@ class Hippy(Character):
         super().__init__(75, 50, 50, 100, "files/images/hippie.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
 
     def move(self):
-        if super(Hippy, self).move():
+        if super(Hippy, self).move(): # Si le personnage ne bouge pas, on n'applique pas les effets de déplacements
             self.life -= 0.5
             self.hydration -= 0.5
             self.satiety -= 0.5
@@ -98,7 +98,7 @@ class HurriedMan(Character):
         super().__init__(100, 75, 75, 50, "files/images/presse.png", game, position, go_position, movement_mode, has_swimsuit, arrest_count)
 
     def move(self):
-        if super(HurriedMan, self).move():
+        if super(HurriedMan, self).move(): # Si le personnage ne bouge pas, on n'applique pas les effets de déplacements
             self.life -= 1
             self.hydration -= 1
             self.satiety -= 1

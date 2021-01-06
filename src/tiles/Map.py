@@ -33,18 +33,16 @@ class Map:
         self.case=[]
         b=[]
         buildingsPos={}             #position of buildings
-        for i in range(x):
+        for i in range(x): # Génère la liste de liste
             self.case.append([])
             for j in range(y):
                 self.case[i].append("V")
-        for i in range (5):
+        for i in range (5): # Créer les cinq batiments
             x1=random.randint(0,x-1)
             y1=random.randint(0,y-1)
             while (issubclass(self.case[x1][y1].__class__,Building)):
-                #print("!",self.case[x1][y1])
                 x1=random.randint(0,x-1)
                 y1=random.randint(0,y-1)
-            #print("<>",self.case[x1][y1])
             if (i==0):
                 self.case[x1][y1]=House([x1*64, y1*64])
                 buildingsPos["House"]=[x1,y1]
@@ -61,9 +59,7 @@ class Map:
                 self.case[x1][y1]=University([x1*64, y1*64])
                 buildingsPos["University"]=[x1,y1]
             b.append([x1,y1])
-        #for i in buildingsPos:
-        #    print(i," : ",buildingsPos.get(i))
-        for i in range (len(b)):
+        for i in range (len(b)): # Prend un point aléatoire autour de chaque batiment
             x1=b[i][0]
             y1=b[i][1]
             poss=[]
@@ -77,11 +73,8 @@ class Map:
                 poss.append([x1,y1-1])
             r=random.randint(0,len(poss)-1)
             b[i]=poss[r]
-        #print(b)
-        for i in range (0,len(b)):
-            #print(b[i])
+        for i in range (0,len(b)): # Génération Trottoir/Route entre chaque batiment
             for j in reversed(range(i+1,len(b))):
-                #print(j)
                 tmp=b[i]
                 save=[b[i][0],b[i][1]]
                 contournement=0
@@ -96,47 +89,24 @@ class Map:
                             if (not(issubclass(self.case[x1][y1].__class__,Building))):
                                 self.case[x1][y1]=Road([x1*64, y1*64])
                             tmp[0]=tmp[0]+1
-                                #contournement=0
-                            #else :
-                                #contournement=3
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
                         elif ((b[j][0]<b[i][0]) or (contournement==2)):
                             x1=tmp[0]-1
                             y1=tmp[1]
                             if (not(issubclass(self.case[x1][y1].__class__,Building))):
                                 self.case[x1][y1]=Road([x1*64, y1*64])
                             tmp[0]=tmp[0]-1
-                                #contournement=0
-                            #else :
-                                #contournement=4
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
                         elif ((b[j][1]>b[i][1]) or (contournement==3)):
                             x1=tmp[0]
                             y1=tmp[1]+1
                             if (not(issubclass(self.case[x1][y1].__class__,Building))):
                                 self.case[x1][y1]=Road([x1*64, y1*64])
                             tmp[1]=tmp[1]+1
-                                #contournement=0
-                            #else :
-                                #contournement=1
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
                         elif ((b[j][1]<b[i][1]) or (contournement==4)):
                             x1=tmp[0]
                             y1=tmp[1]-1
                             if (not(issubclass(self.case[x1][y1].__class__,Building))):
                                 self.case[x1][y1]=Road([x1*64, y1*64])
                             tmp[1]=tmp[1]-1
-                                #contournement=0
-                            #else :
-                                #contournement=2
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
-                        #if (contournement>0):
-                            #break
-                        #print(self.case[x1][y1])
                 else :
                     while (tmp!=b[j] and (contournement>=0)):
                         x1=0
@@ -147,52 +117,25 @@ class Map:
                             if (not(issubclass(self.case[x1][y1].__class__,Building)) and (not(issubclass(self.case[x1][y1].__class__,Road)))):
                                 self.case[x1][y1]=Sidewalk([x1*64, y1*64])
                             tmp[1]=tmp[1]-1
-                                #contournement=0
-                            #else :
-                                #contournement=2
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
                         elif ((b[j][1]>b[i][1]) or (contournement==3)):
                             x1=tmp[0]
                             y1=tmp[1]+1
                             if (not(issubclass(self.case[x1][y1].__class__,Building)) and (not(issubclass(self.case[x1][y1].__class__,Road)))):
                                 self.case[x1][y1]=Sidewalk([x1*64, y1*64])
                             tmp[1]=tmp[1]+1
-                                #contournement=0
-                            #else :
-                                #contournement=1
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
                         elif ((b[j][0]<b[i][0]) or (contournement==2)):
                             x1=tmp[0]-1
                             y1=tmp[1]
                             if (not(issubclass(self.case[x1][y1].__class__,Building)) and (not(issubclass(self.case[x1][y1].__class__,Road)))):
                                 self.case[x1][y1]=Sidewalk([x1*64, y1*64])
                             tmp[0]=tmp[0]-1
-                                #contournement=0
-                            #else :
-                                #contournement=4
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
                         elif ((b[j][0]>b[i][0]) or (contournement==1)):
                             x1=tmp[0]+1
                             y1=tmp[1]
                             if (not(issubclass(self.case[x1][y1].__class__,Building)) and (not(issubclass(self.case[x1][y1].__class__,Road)))):
                                 self.case[x1][y1]=Sidewalk([x1*64, y1*64])
                             tmp[0]=tmp[0]+1
-                                #contournement=0
-                            #else :
-                                #contournement=3
-                            #if (b[j][0]==x1 and b[j][1]==y1):
-                                #tmp=b[j]
-
-
-
-                        #if (contournement>0):
-                            #break
-                        #print(self.case[x1][y1])
                 b[i]=save
-                #print("ROUTE FINI entre :", i," ",b[i]," et ",j, " ",b[j])
         t=buildingsPos.get("House")
         x1=t[0]
         y1=t[1]
@@ -206,28 +149,19 @@ class Map:
         if (y1>0):
             poss.append([x1,y1-1])
         r=random.randint(0,len(poss)-1)
-        for j in poss:
+        for j in poss: # Met des trottirs sur les cases adjacentes à la Maison si elles sont différentes d'un batiment ou d'une route
             x1=j[0]
             y1=j[1]
             if (not(issubclass(self.case[x1][y1].__class__,Building)) and (not(issubclass(self.case[x1][y1].__class__,Road)))):
                 self.case[x1][y1]=Sidewalk([x1*64, y1*64])
-        self.case[x1][y1]
-        for i in range(x):
+        for i in range(x): # Remplace les cases restantes par de l'eau, des cases grises ou de la forêt
             for j in range(y):
                 if (self.case[i][j]=="V"):
                     self.case[i][j]=self.generateTile(i,j)
-        #for i in buildingsPos:
-        #    print(i," : ",buildingsPos.get(i))
-        return buildingsPos
+        return buildingsPos # Retourne un dictionnaire contenant les positions des batiments
 
     def __str__(self):
         return "map affichage"
-
-    def affichage(self):
-        for i in range(len(self.case)):
-            for j in range(len(self.case[i])):
-                print(self.case[i][j]," | ",end='')
-            print()
 
     def display(self, screen):
         for line in self.case:

@@ -14,9 +14,11 @@ class Road(Tile):
         if(personnage.movement_mode==0):
             p = random.uniform(0,1)
             if(isinstance(personnage, Hippy) or (isinstance(personnage, Standard) and p<0.4) or (isinstance(personnage, HurriedMan) and p<0.1)):
+                # Fait passer le personnage en vélo s'il est un Hippie ou avec 40% de chance s'il est un Standard ou 10% de chance s'il est un Homme Pressé
                 personnage.movement_mode = 1
                 print("En velo")
             else:
+                # Sinon le personnage passe en voiture
                 personnage.movement_mode = 2
                 print("En voiture")
         return True
