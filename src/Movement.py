@@ -16,7 +16,7 @@ class Movement:
     
     @classmethod
     def applyCar(cls, character): # Déplacement en voiture
-            character.mentality -= 2
+        character.mentality -= 2
         p_death = uniform(0,1)
         if(p_death <= 0.02):
             character.life = 0
@@ -25,7 +25,6 @@ class Movement:
         if(p_arrest <= 0.05):
             character.arrest_count += 1
             print("Le personnage s'est fait arrêté")
-        if(isinstance(character, HurriedMan)):
     
     @classmethod
     def applyBike(cls, character): # Déplacement à vélo
