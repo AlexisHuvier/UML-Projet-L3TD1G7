@@ -51,13 +51,15 @@ class Character:
                     moving = True
 
                 if moving:
-                    from src.Movement import Movement
-                    if self.movement_mode == 0:
-                        Movement.applyFoot(self)
-                    elif self.movement_mode == 1:
-                        Movement.applyBike(self)
-                    else:
-                        Movement.applyCar(self)
+                    from src.tiles.buildings import Building
+                    if not issubclass(self.game.map.get_case(self.position).__class__, Building):
+                        from src.Movement import Movement
+                        if self.movement_mode == 0:
+                            Movement.applyFoot(self)
+                        elif self.movement_mode == 1:
+                            Movement.applyBike(self)
+                        else:
+                            Movement.applyCar(self)
         return moving
             
 

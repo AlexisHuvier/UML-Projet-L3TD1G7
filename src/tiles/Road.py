@@ -1,6 +1,6 @@
 from src.tiles.Tile import Tile
 from src.Trap import Trap
-from src.Character import *
+from src.Character import Hippy, Standard, HurriedMan
 import random
 
 class Road(Tile):
