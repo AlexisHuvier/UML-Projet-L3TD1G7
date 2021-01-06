@@ -42,6 +42,8 @@ class UMLProjet:
             self.player = Hippy(self, posBuildings["House"], posBuildings["House"], 0, False, 0)
         else:
             self.player = HurriedMan(self, posBuildings["House"], posBuildings["House"], 0, False, 0)
+        print("NEW GAME")
+        print(self.player)
 
     def process_event(self, evt):
         if evt.type == pygame.QUIT:

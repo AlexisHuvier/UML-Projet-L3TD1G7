@@ -17,8 +17,6 @@ class Character:
         self.diplomaCounter = 0
         self.diplomaObtainingBonus = 0
         self.dead = False
-        print("NEW GAME")
-        print(self)
 
     def __str__(self):
         return self.__class__.__name__+"(L:{}, H:{}, S:{}, M:{}, P:{}, GP:{}, MM:{}, HS:{}, AC:{}, DC:{}, DOB:{})".format(self.life, self.hydration, self.satiety, self.mentality, self.position, self.go_position, self.movement_mode, self.has_swimsuit, self.arrest_count, self.diplomaCounter, self.diplomaObtainingBonus)
@@ -60,7 +58,6 @@ class Character:
                         Movement.applyBike(self)
                     else:
                         Movement.applyCar(self)
-                    print(self)
         return moving
             
 
@@ -78,6 +75,7 @@ class Standard(Character):
             self.hydration -= 1
             self.satiety -= 1
             self.mentality -= 1
+            print(self)
         
 
 class Hippy(Character):
@@ -90,6 +88,7 @@ class Hippy(Character):
             self.life -= 0.5
             self.hydration -= 0.5
             self.satiety -= 0.5
+            print(self)
 
 class HurriedMan(Character):
 
@@ -102,4 +101,5 @@ class HurriedMan(Character):
             self.hydration -= 1
             self.satiety -= 1
             self.mentality -= 1
+            print(self)
         
