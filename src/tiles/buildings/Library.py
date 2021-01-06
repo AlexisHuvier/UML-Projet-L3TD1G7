@@ -18,4 +18,5 @@ class Library(Building):
         if (personnage.mentality>100):
             personnage.mentality=100
         if (p<=5):
+            print("Le personnage a trouve un livre sur le GL")
             personnage.diplomaObtainingBonus+=10

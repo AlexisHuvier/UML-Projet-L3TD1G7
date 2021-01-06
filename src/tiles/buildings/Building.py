@@ -12,5 +12,7 @@ class Building(Tile):
         return "building affichage"
 
     def can_go(self,personnage):
+        if(personnage.movement_mode != 0):
+            print("A pied")
         personnage.movement_mode = 0
         return True

@@ -16,6 +16,7 @@ class University(Building):
         p=random.randint(0,100)
         if (p<=30+personnage.diplomaObtainingBonus):
             personnage.diplomaCounter+=1
+            print("Le personnage a obtenu un diplome !")
             personnage.mentality+=5
             if (personnage.mentality>100):
                 personnage.mentality=100

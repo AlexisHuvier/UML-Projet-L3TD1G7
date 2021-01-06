@@ -22,4 +22,5 @@ class Pub(Building):
             personnage.hydration=100
         personnage.life-=3
         if (p<=5):
+            print("Le personnage a trouve le sujet du prochain examen")
             personnage.diplomaObtainingBonus+=5

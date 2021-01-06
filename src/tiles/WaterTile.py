@@ -10,6 +10,8 @@ class WaterTile(Tile):
 
     def can_go(self,personnage):
         if personnage.has_swimsuit:
+            if(personnage.movement_mode != 0):
+                print("A pied")
             personnage.movement_mode = 0
             return True
         return False
@@ -17,4 +19,5 @@ class WaterTile(Tile):
     def apply(self,personnage):
         r=random.uniform(0, 1)
         if (r<=0.05):
+            print("Le personnage a eu une maladie")
             personnage.life-=10

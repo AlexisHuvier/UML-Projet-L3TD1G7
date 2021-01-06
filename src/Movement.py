@@ -19,6 +19,7 @@ class Movement:
         p_death = uniform(0,1)
         if(p_death <= 0.02):
             character.life = 0
+            print("Le personnage a eu un accident")
         p_arrest = uniform(0,1)
         if(p_arrest <= 0.05):
             character.arrest_count += 1
@@ -30,6 +31,7 @@ class Movement:
         p_death = uniform(0,1)
         if(p_death <= 0.005):
             character.life = 0
+            print("Le personnage a eu un accident")
         if(isinstance(character, Standard)):
             character.hydration -= 5
             character.satiety -= 5

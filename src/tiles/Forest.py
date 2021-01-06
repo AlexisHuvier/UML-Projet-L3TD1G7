@@ -9,6 +9,8 @@ class Forest(Tile):
         return "F"
 
     def can_go(self,personnage):
+        if(personnage.movement_mode != 0):
+            print("A pied")
         personnage.movement_mode = 0
         return True
 
@@ -16,3 +18,4 @@ class Forest(Tile):
         r=random.uniform(0, 1)
         if (r<=0.1):
             personnage.life-=10
+            print("Le personnage a eu une maladie")
