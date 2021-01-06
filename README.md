@@ -31,9 +31,9 @@ Touches pour jouer :
 * P : Mettre en pause le jeu
 * Flèches : Déplacements
 
-> **Note**: Le jeu a deux arguments optionnels : la largeur et la taille de la map.
+> **Note**: Le jeu a deux arguments optionnels : la largeur et la taille de la map. Exemple : python .\UMLProjet.py 4 6
 
-> **WARNING**: Attention, les mettre trop petits peuvent générer des soucis (il faut minimum 5 cases) et les mettre trop grand, n'affichera pas toute la map (maximum 18 pour n et 14 pour m).
+> **WARNING**: Attention, les mettre trop petits peuvent générer des soucis (il faut minimum 5 cases) et les mettre trop grand, n'affichera pas toute la map (maximum 18 pour n et 14 pour m). Nous recommandons une map de 5 par 5 (valeurs par défaut)
 
 ## Fonctionnalités
 
